@@ -1,0 +1,28 @@
+{
+  "name": "dealers_choice",
+  "version": "1.0.0",
+  "description": "homework",
+  "main": "app.js",
+  "scripts":{
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^15.0.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephmckeel/dealers_choice_js.git"
+  },
+  "author": "Taylor McKeel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephmckeel/dealers_choice_js/issues"
+  },
+  "homepage": "https://github.com/josephmckeel/dealers_choice_js#readme"
+}
