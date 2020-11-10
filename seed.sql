@@ -6,3 +6,6 @@ INSERT INTO pokemon (name, health, type, owner) VALUES ('magmar', 350, 'fire', '
 -- INSERT INTO pokemon (name, health, type, owner) VALUES ('jigglypuff', 100, 'normal','Misty');
 -- INSERT INTO pokemon (name, health, type, owner) VALUES ('onyx', 400, 'rock','Brock');
 
+
+
+CREATE TABLE pokemon ( id SERIAL PRIMARY KEY, name TEXT NOT NULL, health INTEGER DEFAULT NULL,type TEXT NOT NULL, owner TEXT NOT NULL);

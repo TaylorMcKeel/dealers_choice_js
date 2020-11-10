@@ -8,6 +8,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
+    "client": "0.0.1",
     "express": "^4.17.1",
     "html-template-tag": "^3.2.0",
     "node": "^15.0.1",
