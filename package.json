@@ -4,8 +4,10 @@
   "description": "homework",
   "main": "app.js",
   "scripts": {
+    "build": "webpack",
+    "build:dev": "webpack --mode=development --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start:dev": "npm run build:dev & nodemon server --ignore src/ --ignore dist/"
   },
   "dependencies": {
     "client": "0.0.1",
@@ -14,7 +16,9 @@
     "node": "^15.0.1",
     "nodemon": "^2.0.6",
     "pg": "^8.4.2",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "webpack": "^5.5.0",
+    "webpack-cli": "^4.2.0"
   },
   "devDependencies": {},
   "repository": {

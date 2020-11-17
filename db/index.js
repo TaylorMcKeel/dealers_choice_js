@@ -7,16 +7,36 @@ const Pokemon = conn.define('pokemon',{
     name: STRING,
     health: INTEGER,
     type: STRING,
-    owner: STRING
 })
+
+const Trainor = conn.define('trainor',{
+    name: STRING,
+    hometown: STRING
+})
+
+Pokemon.belongsTo(Trainor)
+Trainor.belongsTo(Trainor,{foreignKey: 'friendId'})
+Trainor.hasMany(Pokemon)
 
 const sync=async()=>{
     await conn.sync({ force: true })
-    await Pokemon.create({name: 'Squirtle', health: 200,type: 'Water',owner:'Ash'})
-    await Pokemon.create({name: 'Charmander', health: 300,type: 'Fire',owner:'Taylor'})
-    await Pokemon.create({name: 'Jigglypuff', health: 100,type: 'Normal',owner:'Misty'})
-    await Pokemon.create({name: 'Onyx', health: 400,type: 'Rock',owner:'Brock'})
-    await Pokemon.create({name: 'Magmar', health: 350,type: 'Fire',owner:'John'})
+    const squirtle = await Pokemon.create({name: 'Squirtle', health: 200,type: 'Water'})
+    const charmander =await Pokemon.create({name: 'Charmander', health: 300,type: 'Fire'})
+    const jigglypuff = await Pokemon.create({name: 'Jigglypuff', health: 100,type: 'Normal'})
+    const onyx = await Pokemon.create({name: 'Onyx', health: 400,type: 'Rock'})
+    const magmar = await Pokemon.create({name: 'Magmar', health: 350,type: 'Fire'})
+    const ash = await Trainor.create({name:'Ash', hometown:'Pallet'})
+    const misty = await Trainor.create({name:'Misty', hometown:'NYC'})
+    const brock = await Trainor.create({name:'Brock', hometown:'Tulum'})
+    squirtle.trainorId = ash.id
+    charmander.trainorId= ash.id
+    jigglypuff.trainorId = misty.id
+    onyx.trainorId = brock.id
+    magmar.trainorId = ash.id
+    ash.friendId = misty.id
+    misty.friendId = brock.id
+    brock.friendId = ash.id
+    await Promise.all([squirtle.save(),charmander.save(),jigglypuff.save(),onyx.save(),magmar.save(),ash.save(),misty.save(),brock.save()])
 
 }
 module.exports = {sync, Pokemon}
