@@ -2,7 +2,7 @@ const pg = require('pg')
 const express = require('express')
 const path = require('path')
 const {sync} = require('./db')
-const {renderPokemon, renderTrainors, renderHome}= require('./src')
+// const {renderPokemon, renderTrainors, renderHome}= require('./src')
 const app = express()
 
 
@@ -14,8 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/', async (req, res, next)=>{
     try{
-        renderHome()
-        res.sendFile(path.join(__dirname + 'index.html'))
+        res.sendFile(path.join(__dirname + '/index.html'))
     }catch{
         next()
     }
@@ -23,8 +22,7 @@ app.get('/', async (req, res, next)=>{
 
 app.get('/pokemon/:id', async (req, res, next)=>{
     try{
-        renderPokemon()
-        res.sendFile(path.join(__dirname + 'index.html'))
+        res.sendFile(path.join(__dirname + '/index.html'))
     }
     catch{
         next()
@@ -33,8 +31,7 @@ app.get('/pokemon/:id', async (req, res, next)=>{
 
 app.get('/trainors/:id', async (req, res, next)=>{
     try{
-        renderTrainors()
-        res.sendFile(path.join(__dirname + 'index.html'))
+        res.sendFile(path.join(__dirname + '/index.html'))
     }
     catch{
         next()

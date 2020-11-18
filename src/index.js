@@ -3,7 +3,7 @@ const Sequelize = require('sequelize')
 const { builtinModules } = require('module')
 const div = document.querySelector('#main')
 
-
+console.log(window.location.hash)
 const curr = window.location.hash.slice(1) *1
 
 const renderHome = ()=>{
@@ -11,6 +11,7 @@ const renderHome = ()=>{
         <a href='/pokemon'>See all Pokemon!</a>
         <a href='/trainors'>See all Trainors!</a>
     `
+    div.innerHTML = html
 }
 
 const renderPokemon =async()=>{
@@ -58,6 +59,12 @@ const renderTrainors =async()=>{
          }).join('')}
     `
     div.innerHTML = html
+}
+
+const render=()=>{
+    if (path){
+        renderTrainors()
+    }
 }
 
 module.exports={

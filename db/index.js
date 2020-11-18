@@ -39,4 +39,4 @@ const sync=async()=>{
     await Promise.all([squirtle.save(),charmander.save(),jigglypuff.save(),onyx.save(),magmar.save(),ash.save(),misty.save(),brock.save()])
 
 }
-module.exports = {sync, Pokemon}
+module.exports = {sync, Pokemon, Trainor}
